@@ -112,7 +112,7 @@ while(True):
     csvfile =  open(csv_fn, 'w', newline='')
     csv_writer = csv.writer(csvfile)
 
-    for nump in range(0:num_meas+1):
+    for nump in range(0,num_meas):
 
         # Loop through the sequence
         for num in range(0,num_steps+1):
@@ -132,7 +132,7 @@ while(True):
             data = []
             data.append(str(motor.position))
             for j in range(0, 1):        # Take intensity measurements
-                raw = agilent.measure(voltmet)
+                raw = agilent.measure(voltmet,102,102)
                 rawlist = raw.split(",")
                 for datum in rawlist:
                     #print(datum)
@@ -145,7 +145,7 @@ while(True):
 
     csvfile.close() # Close CSV file
 
-    [cont_loop, start_pos, end_pos, num_steps, num_meas, iteration] = eng.complete_align(csv_fn, iteration,grating_num,grating_type, nargout=6)
+    [cont_loop, start_pos, end_pos, num_steps, num_meas, iteration] = eng.complete_align_single(csv_fn, iteration,grating_num,grating_type, nargout=6)
     cont_loop = int(cont_loop)
     num_steps = int(num_steps)
     num_meas = int(num_meas)

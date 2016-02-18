@@ -148,17 +148,14 @@ if(iteration==1)
     mx1=distanc1(voltag1==max(voltag1));
     
     %sets gridsize parameters
-<<<<<<< HEAD
     %strt=min([mx1])-.5;
     strt=min(distance1)-.25;
     %stp=max([mx1])+.5;
     stp=max(distance1)+.25;
     mest=1;
-=======
     strt=min(mx1)-.5;
     stp=max(mx1)+.5;
     mest=3;
->>>>>>> 08ec797702c1704a376c5d571b328d34dd08830e
     stept=round((stp-strt)/.02,0);
     cont_loop=0;
     %%%[cont_loop strt stp stept mest];
@@ -198,7 +195,7 @@ if(iteration==3)
         strt=min(distance1)-.02;
     end
     
-    mest=5;
+    mest=10;
     stept=round((stp-strt)/.002,0);
     cont_loop=0;
     %%%[cont_loop strt stp stept mest];
@@ -264,14 +261,11 @@ if(iteration==4||iteration==5)
     hibd1=maxxs1((times/2)+num_pt);
 
     %width of the confidence intervals
-<<<<<<< HEAD
     rng1=(hibd1-lwbd1)*25400;
-=======
     rng1=(hibd1-lwbd1)*1000;
 
     %finds the widest confidence interval
     hi_rng=max(rng1/1000);
->>>>>>> 08ec797702c1704a376c5d571b328d34dd08830e
 
     %if(hi_rng<.001) %CHANGE THIS VALUE ACCORDING TO PRECISION REQUIREMENTS
         strt=0;
@@ -346,7 +340,6 @@ if(iteration==4||iteration==5)
         fclose(fileID); %close the finished file
         
         cd (pth(1:end-15))
-<<<<<<< HEAD
         try
             system('pdflatex Test_Report.tex')
             system('sudo xdg-open Test_Report.pdf')
@@ -358,12 +351,10 @@ if(iteration==4||iteration==5)
         end
 
     %else
-=======
         system('pdflatex Test_Report.tex')
         system('sudo xdg-open Test_Report.pdf')
 
     else
->>>>>>> 08ec797702c1704a376c5d571b328d34dd08830e
         if(iteration==4)
             strt=min(distanc1)-.01;
             stp=max(distanc1)+.01;
