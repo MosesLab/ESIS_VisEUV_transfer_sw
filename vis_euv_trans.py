@@ -8,4 +8,4 @@ print("here")
 x = comm.discover_stages()
 
 for i in x:
-    print(i)
+    continue

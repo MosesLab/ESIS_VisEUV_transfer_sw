@@ -2,50 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="276ed0f4-75b9-4a0a-82da-11f8cc50d55a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/ESIS_VisEUV_transfer_sw.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thorpy/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thorpy/comm/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thorpy/comm/_base.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thorpy/comm/discovery.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thorpy/comm/port.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thorpy/helpers.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thorpy/message/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thorpy/message/_base.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thorpy/message/filterflippercontrol.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thorpy/message/lasercontrol.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thorpy/message/motorcontrol.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thorpy/message/nanotrackcontrol.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thorpy/message/piezocontrol.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thorpy/message/quadcontrol.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thorpy/message/solenoidcontrol.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thorpy/message/systemcontrol.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thorpy/message/teccontrol.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thorpy/stages/MG17APTServer.ini" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thorpy/stages/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vis_euv_trans.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/thorpy/thorpy/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/thorpy/thorpy/comm/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/thorpy/thorpy/comm/_base.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/thorpy/thorpy/comm/discovery.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/thorpy/thorpy/comm/port.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/thorpy/thorpy/helpers.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/thorpy/thorpy/message/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/thorpy/thorpy/message/_base.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/thorpy/thorpy/message/filterflippercontrol.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/thorpy/thorpy/message/lasercontrol.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/thorpy/thorpy/message/motorcontrol.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/thorpy/thorpy/message/nanotrackcontrol.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/thorpy/thorpy/message/piezocontrol.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/thorpy/thorpy/message/quadcontrol.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/thorpy/thorpy/message/solenoidcontrol.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/thorpy/thorpy/message/systemcontrol.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/thorpy/thorpy/message/teccontrol.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/thorpy/thorpy/stages/MG17APTServer.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/thorpy/thorpy/stages/__init__.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vis_euv_trans.py" afterPath="$PROJECT_DIR$/vis_euv_trans.py" />
     </list>
     <ignored path="ESIS_VisEUV_transfer_sw.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="vis_euv_trans.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="vis_euv_trans.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vis_euv_trans.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+            <state relative-caret-position="165">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -80,11 +38,31 @@
       <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/thorpy/stages/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="-195">
+              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="builtins.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.PyCharm2016.2/system/python_stubs/-1247971765/builtins.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="4622" column="8" selection-start-line="4622" selection-start-column="8" selection-end-line="4622" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MG17APTServer.ini" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/thorpy/stages/MG17APTServer.ini">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-221">
+              <caret line="3526" column="3" selection-start-line="3526" selection-start-column="1" selection-end-line="3526" selection-end-column="3" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -133,31 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/thorpy/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="helpers.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/thorpy/helpers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="discovery.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="discovery.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/thorpy/comm/discovery.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="19" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="19" />
+            <state relative-caret-position="105">
+              <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -166,7 +124,7 @@
       <file leaf-file-name="port.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/thorpy/comm/port.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1095">
+            <state relative-caret-position="-825">
               <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -184,6 +142,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/thorpy/comm/__init__.py" />
+        <option value="$PROJECT_DIR$/thorpy/comm/discovery.py" />
+        <option value="$PROJECT_DIR$/thorpy/stages/__init__.py" />
         <option value="$PROJECT_DIR$/vis_euv_trans.py" />
       </list>
     </option>
@@ -482,6 +442,14 @@
       <option name="presentableId" value="Default" />
       <updated>1473460068593</updated>
     </task>
+    <task id="LOCAL-00001" summary="Debugging why stage isn't recognized.&#10;-Print stage id">
+      <created>1473530950966</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1473530950966</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -494,7 +462,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -518,8 +486,21 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Debugging why stage isn't recognized.&#10;-Print stage id" />
+    <option name="LAST_COMMIT_MESSAGE" value="Debugging why stage isn't recognized.&#10;-Print stage id" />
+  </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/vis_euv_trans.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="4" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -581,31 +562,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/thorpy/comm/port.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1095">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/thorpy/comm/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/thorpy/stages/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -619,21 +580,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vis_euv_trans.py">
+    <entry file="file://$PROJECT_DIR$/thorpy/comm/discovery.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        <state relative-caret-position="105">
+          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thorpy/comm/port.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-825">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/thorpy/comm/discovery.py">
+    <entry file="file://$PROJECT_DIR$/thorpy/stages/MG17APTServer.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="19" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="19" />
+        <state relative-caret-position="-221">
+          <caret line="3526" column="3" selection-start-line="3526" selection-start-column="1" selection-end-line="3526" selection-end-column="3" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2016.2/system/python_stubs/-1247971765/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="4622" column="8" selection-start-line="4622" selection-start-column="8" selection-end-line="4622" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thorpy/stages/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-195">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vis_euv_trans.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
