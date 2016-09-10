@@ -14,4 +14,4 @@ for i in x:
 
 print(stage,x)
 
-print(stage.status_channel_enabled())
+print(stage.status_channel_enabled)
