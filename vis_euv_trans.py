@@ -14,4 +14,15 @@ for i in x:
 
 print(stage,x)
 
+stage.max_velocity = 1.0
+stage.acceleration = 1.0
+
+stage.print_state()
+
+stage.home()
+
+stage.position = 2.0
+
+
+
 stage.print_state()
