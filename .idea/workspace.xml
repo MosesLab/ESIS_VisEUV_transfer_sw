@@ -27,7 +27,7 @@
         <entry file="file://$PROJECT_DIR$/vis_euv_trans.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+              <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -38,7 +38,7 @@
       <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/thorpy/stages/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4862">
+            <state relative-caret-position="-5402">
               <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -491,7 +491,14 @@
       <option name="project" value="LOCAL" />
       <updated>1473536891905</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Testing how to acquire objects from generator&#10;">
+      <created>1473544430792</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1473544430792</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -660,7 +667,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/thorpy/stages/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4862">
+        <state relative-caret-position="-5402">
           <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
@@ -671,7 +678,7 @@
     <entry file="file://$PROJECT_DIR$/vis_euv_trans.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
