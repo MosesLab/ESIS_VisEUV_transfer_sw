@@ -7,5 +7,9 @@ print("here")
 
 x = comm.discover_stages()
 
+stages = []
+
 for i in x:
-    continue
+    stages.append(i)
+
+print(stages)
