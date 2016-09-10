@@ -15,6 +15,7 @@ def stage_name_from_get_hw_info(m):
     stage_type = m['empty_space'][-2]  #Reverse engineered
     hw_version = m['hw_version']
     model_number = m['model_number'].decode('ascii').strip('\x00')
+    print(stage_type)
     if controller_type in (60, 80):
         if hw_version == 3:
             return 'HS ZST6(B)'

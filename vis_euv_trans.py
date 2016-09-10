@@ -3,6 +3,9 @@ import thorpy.message
 import thorpy.comm.discovery as comm
 import thorpy.stages
 
-comm.discover_stages()
+print("here")
 
-# stage = GenericStage(1,2,3,4)
+x = comm.discover_stages()
+
+for i in x:
+    print(i)

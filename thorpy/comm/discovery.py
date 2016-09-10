@@ -4,9 +4,13 @@ def discover_stages():
     from .port import Port
     from serial.tools.list_ports import comports
     import platform
-    
+
+    print("here")
+
     serial_ports = [(x[0], x[1], dict(y.split('=', 1) for y in x[2].split(' ') if '=' in y)) for x in comports()]
-    
+
+
+
     for dev in usb.core.find(find_all=True, custom_match= lambda x: x.bDeviceClass != 9):
         try:
             if dev.manufacturer != 'Thorlabs':
