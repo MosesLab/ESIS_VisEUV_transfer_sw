@@ -7,9 +7,11 @@ print("here")
 
 x = comm.discover_stages()
 
-stages = None
+stage = None
 
 for i in x:
-    stages = i
+    stage = i
 
-print(stages,x)
+print(stage,x)
+
+print(stage.status_channel_enabled())
