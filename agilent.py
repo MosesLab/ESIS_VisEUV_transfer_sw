@@ -2,7 +2,7 @@
 import serial
 
 # Commands the agilent to read voltage on specified number of ports
-command = "MEASure:VOLTage:DC? (@101)\n"
+command = bytes("MEASure:VOLTage:DC? (@101:103)\n", 'utf-8')
 
 #Function to Initialize the Serial Port
 def init_serial():
@@ -12,7 +12,7 @@ def init_serial():
     ser.port = '/dev/ttyUSB0'
 
     #Sets the TimeOut in seconds, so that SerialPort doesn't miscommunicate
-    ser.timeout = 10
+    ser.timeout = None
     ser.open()			#Opens SerialPort
 
     # print if port is open or closed
@@ -25,5 +25,6 @@ def init_serial():
 # Reads one measurement from A/D
 def measure(ser):
     ser.write(command)
-    bytes = ser.readline()  #Reads from SerialPort
+    bytes = ser.readline().decode('utf-8')[:-2]  #Reads from SerialPort
     return bytes
+
