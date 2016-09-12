@@ -28,6 +28,9 @@ x = comm.discover_stages()
 for i in x:
     motor = i
 
+if motor == None:
+    sys.exit("Z812 stage not connected")
+
 # Check that the arguments are physically attainable
 if start_pos == end_pos:
     sys.exit("Nothing to do. Start position equal to end position")
@@ -62,9 +65,13 @@ motor.home()                # Move the Z812 to the home position (position 0.0mm
 # Loop through the sequence
 for num in range(0,num_steps+1):
 
+    # Make sure the motor isn't going to be damaged by the move
+    if(motor.status_motor_current_limit_reached or motor.status_motion_error or motor.status_forward_hardware_limit_switch_active or motor.status_reverse_hardware_limit_switch_active):
+        sys.exit("Z812B encountered an error")
+
     # Move the motor to the new position and wait for completion
     motor.position = start_pos + num * dx
-    sleep(0.1)
+    sleep(0.2)
     while (motor.status_in_motion_forward or motor.status_in_motion_reverse or motor.status_in_motion_jogging_forward or motor.status_in_motion_jogging_reverse or motor.status_in_motion_homing):
         sleep(0.1)
         motor.print_state()
