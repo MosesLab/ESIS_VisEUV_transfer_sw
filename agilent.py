@@ -2,7 +2,7 @@
 import serial
 
 # Commands the agilent to read voltage on specified number of ports
-command = bytes("MEASure:VOLTage:DC? (@101:103)\n", 'utf-8')
+command = bytes("MEASure:VOLTage:DC? (@101)\n", 'utf-8')
 
 #Function to Initialize the Serial Port
 def init_serial():
