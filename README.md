@@ -13,8 +13,10 @@ the link to install Matlab on Linux Mint.
 Python3 is already installed in Linux Mint by default. However, there are a few needed dependencies to use the Agilent ADC and the
 ThorLabs stepper motor. These dependencies are installed using the command
 ```
-sudo apt install pip
-sudo pip install pyusb???? <-- NEED TO UPDATE THIS LIST
+sudo apt install python3-pip
+sudo pip3 install pyserial
+sudo pip3 install setuptools
+sudo pip3 install pyusb
 ```
 
 ### Installing the Matlab-Python engine
