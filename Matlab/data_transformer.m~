@@ -28,7 +28,4 @@ distanc3=distanc1;
 
 %voltag values will differ between the 3 measurements
 voltag1
-for(n=1:(l/3))
-    voltag1(1,n)=mean(data(n,2:3:end))
-    voltag2=
-end
+voltag1(1,n)=mean(data(1,2:3:end))

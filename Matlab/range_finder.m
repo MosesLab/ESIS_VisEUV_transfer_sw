@@ -1,8 +1,9 @@
-
+function [cont_loop,new_grid]=range_finder(impo,iteration)
 %OVERVIEW: determines how the next measurent should be taken to get the
 %neccessary confidence for position
 
 %uses cut gaussian data
+global impo
 run plotter.m
 
 %data variables pulled and given to other programs
@@ -23,8 +24,8 @@ global hi_rng
 
 %finds a new start and stop position for stepper motor to avoid collecting
 %unnessasay data
-strt=min([distance1 distance2 distance3]);
-stp=max([distance1 distance2 distance3]);
+strt=min([distance1;distance2;distance3]);
+stp=max([distance1;distance2;distance3]);
 
 %finds the distance value for which the voltage is maximized
 mx1=distanc1(find(voltag1==max(voltag1)));
@@ -143,4 +144,8 @@ if(bot==0)
 else
     %tell program this section has never been run before
     pro=0;
+    
 end
+
+cont_loop = false;
+new_grid = [1,1,1,1];
