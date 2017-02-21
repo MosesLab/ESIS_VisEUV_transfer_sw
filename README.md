@@ -26,3 +26,7 @@ but the commands are as follows:
 cd /usr/local/MATLAB/extern/engines/python/
 python3 setup.py install
 ```
+
+### Running Without Superuser Privledges
+By default, the USB system requires sudo privledges to access. We can circumvent this by copying the file '51-thorpy.rules' in the root of this repo into the directory '/etc/udev/rules.d/' and restarting the computer. This will remove superuser privledges for all USB devices, so use with caution!
+

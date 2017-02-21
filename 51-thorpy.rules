@@ -1,0 +1,5 @@
+# Rules to run Thorpy without sudo privledges
+
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", MODE="0664", GROUP="usbusers"
+#ACTION=="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="faf0", MODE="660", GROUP="plugdev"
+
