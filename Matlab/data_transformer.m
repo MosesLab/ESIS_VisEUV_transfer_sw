@@ -27,8 +27,12 @@ distanc3=distanc1;
 
 
 %voltag values will differ between the 3 measurements
-voltag1
-for(n=1:(l/3))
-    voltag1(1,n)=mean(data(n,2:3:end))
-    voltag2=
+%averages multiple measurements for a single distance
+for(n=(1:h))
+    voltag1(n)=mean(data(n,2:3:end));
+    voltag2(n)=mean(data(n,3:3:end));
+    voltag3(n)=mean(data(n,4:3:end));
 end
+voltag1=voltag1';
+voltag2=voltag2';
+voltag3=voltag3';
