@@ -10,6 +10,9 @@ import csv
 import time
 from time import sleep
 import sys
+import matlab.engine
+eng = matlab.engine.start_matlab()
+eng.cd(r'../Matlab')
 
 # Check if the program received the correct number of arguments
 if len(sys.argv) != 5:
@@ -49,7 +52,8 @@ if num_steps <= 0:
 
 # Open CSV file for writing output
 timestr = time.strftime("%Y%m%d-%H%M%S")
-csvfile =  open('output_csv/vis-euv_' + timestr + '.csv', 'w', newline='')
+csv_fn = 'output_csv/vis-euv_' + timestr + '.csv'
+csvfile =  open(csv_fn, 'w', newline='')
 csv_writer = csv.writer(csvfile)
 
 # Open the Agilent 34970A for voltage measurements
@@ -74,19 +78,24 @@ for num in range(0,num_steps+1):
     sleep(0.2)
     while (motor.status_in_motion_forward or motor.status_in_motion_reverse or motor.status_in_motion_jogging_forward or motor.status_in_motion_jogging_reverse or motor.status_in_motion_homing):
         sleep(0.1)
-        motor.print_state()
+        #motor.print_state()
 
     # Take the intesity measurements
     data = []
     data.append(str(motor.position))
-    data.append("")
     for j in range(0, num_meas):        # Take intensity measurements
-        data.append(agilent.measure(voltmet))
+        raw = agilent.measure(voltmet)
+        rawlist = raw.split(",")
+        for datum in rawlist:
+            #print(datum)
+            data.append(datum)
 
     csv_writer.writerow(data)   # write next row of data to file
 
 
 
-
-
 csvfile.close() # Close CSV file
+
+[cont_loop, new_grid] = eng.range_finder("../Python/" + csv_fn, 0, nargout=2)
+
+input("Press Enter to quit...")
