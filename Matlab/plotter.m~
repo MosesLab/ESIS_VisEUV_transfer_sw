@@ -20,7 +20,7 @@ global voltage3
 
 figure()
 hold on
-
+subplot(1,1,1)
 %scatter plot of all data
 distanc1
 voltag1
@@ -69,7 +69,6 @@ gaus_voltag2=ft_gaus2(prec_dis);
 gaus_voltag3=ft_gaus3(prec_dis);
 
 figure()
-
 hold on
 
 %plots scatter plot of original data
@@ -120,7 +119,6 @@ post_gaus_pft3=polyfit(distance3,voltage3,4);
 pft_post_gaus3=polyval(post_gaus_pft3,dis_prec3);
 
 figure()
-
 hold on
 
 %scatter plot of cut data
@@ -140,7 +138,6 @@ xlabel('Distance (mm)')
 ylabel('Voltage (V)')
 
 figure()
-
 hold on
 
 %scatter plot of original data

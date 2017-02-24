@@ -25,6 +25,8 @@ num_steps = int(sys.argv[3])    # Number of steps to take with the motor between
 num_meas = int(sys.argv[4])       # Number of intensity measurements to take per step
 dx = (end_pos - start_pos) / num_steps  # Amount to move for each step
 
+cont_loop = True
+
 # Open the Z812B motorized stage
 motor = None
 x = comm.discover_stages()
@@ -34,28 +36,6 @@ for i in x:
 if motor == None:
     sys.exit("Z812 stage not connected")
 
-# Check that the arguments are physically attainable
-if start_pos == end_pos:
-    sys.exit("Nothing to do. Start position equal to end position")
-
-if min(start_pos, end_pos) < motor.home_offset_distance:
-    sys.exit("Minimum value too close to end of motor")
-
-if max(start_pos,end_pos) > (12.0 - motor.home_offset_distance):
-    sys.exit("Maximum value too close to end of motor")
-
-if num_meas <= 0:
-    sys.exit("Number of measurements must be larger than zero")
-
-if num_steps <= 0:
-    sys.exit("Number of steps must be larger than zero")
-
-# Open CSV file for writing output
-timestr = time.strftime("%Y%m%d-%H%M%S")
-csv_fn = 'output_csv/vis-euv_' + timestr + '.csv'
-csvfile =  open(csv_fn, 'w', newline='')
-csv_writer = csv.writer(csvfile)
-
 # Open the Agilent 34970A for voltage measurements
 voltmet = agilent.init_serial()
 
@@ -63,39 +43,66 @@ voltmet = agilent.init_serial()
 motor.acceleration = 0.05
 motor.max_velocity = 1.0    # Set max velocity parameter on Z812 (mm/s)
 motor.print_state()
-motor.home()                # Move the Z812 to the home position (position 0.0mm) before measurements
+motor.home()
+
+while(cont_loop):
+
+    # Check that the arguments are physically attainable
+    if start_pos == end_pos:
+        sys.exit("Nothing to do. Start position equal to end position")
+
+    if min(start_pos, end_pos) < motor.home_offset_distance:
+        sys.exit("Minimum value too close to end of motor")
+
+    if max(start_pos,end_pos) > (12.0 - motor.home_offset_distance):
+        sys.exit("Maximum value too close to end of motor")
+
+    if num_meas <= 0:
+        sys.exit("Number of measurements must be larger than zero")
+
+    if num_steps <= 0:
+        sys.exit("Number of steps must be larger than zero")
+
+    # Open CSV file for writing output
+    timestr = time.strftime("%Y%m%d-%H%M%S")
+    csv_fn = 'output_csv/vis-euv_' + timestr + '.csv'
+    csvfile =  open(csv_fn, 'w', newline='')
+    csv_writer = csv.writer(csvfile)
+
+             # Move the Z812 to the home position (position 0.0mm) before measurements
 
 
-# Loop through the sequence
-for num in range(0,num_steps+1):
+    # Loop through the sequence
+    for num in range(0,num_steps+1):
 
-    # Make sure the motor isn't going to be damaged by the move
-    if(motor.status_motor_current_limit_reached or motor.status_motion_error or motor.status_forward_hardware_limit_switch_active or motor.status_reverse_hardware_limit_switch_active):
-        sys.exit("Z812B encountered an error")
+        # Make sure the motor isn't going to be damaged by the move
+        if(motor.status_motor_current_limit_reached or motor.status_motion_error or motor.status_forward_hardware_limit_switch_active or motor.status_reverse_hardware_limit_switch_active):
+            sys.exit("Z812B encountered an error")
 
-    # Move the motor to the new position and wait for completion
-    motor.position = start_pos + num * dx
-    sleep(0.2)
-    while (motor.status_in_motion_forward or motor.status_in_motion_reverse or motor.status_in_motion_jogging_forward or motor.status_in_motion_jogging_reverse or motor.status_in_motion_homing):
-        sleep(0.1)
-        #motor.print_state()
+        # Move the motor to the new position and wait for completion
+        motor.position = start_pos + num * dx
+        sleep(0.2)
+        while (motor.status_in_motion_forward or motor.status_in_motion_reverse or motor.status_in_motion_jogging_forward or motor.status_in_motion_jogging_reverse or motor.status_in_motion_homing):
+            sleep(0.1)
+            #motor.print_state()
 
-    # Take the intesity measurements
-    data = []
-    data.append(str(motor.position))
-    for j in range(0, num_meas):        # Take intensity measurements
-        raw = agilent.measure(voltmet)
-        rawlist = raw.split(",")
-        for datum in rawlist:
-            #print(datum)
-            data.append(datum)
+        # Take the intesity measurements
+        data = []
+        data.append(str(motor.position))
+        for j in range(0, num_meas):        # Take intensity measurements
+            raw = agilent.measure(voltmet)
+            rawlist = raw.split(",")
+            for datum in rawlist:
+                #print(datum)
+                data.append(datum)
 
-    csv_writer.writerow(data)   # write next row of data to file
+        csv_writer.writerow(data)   # write next row of data to file
 
 
 
-csvfile.close() # Close CSV file
+    csvfile.close() # Close CSV file
 
-[cont_loop, new_grid] = eng.range_finder("../Python/" + csv_fn, 0, nargout=2)
+    [cont_loop, start_pos, end_pos, num_steps, num_meas] = eng.range_finder("../Python/" + csv_fn, 0, nargout=2)
+    print(cont_loop, start_pos, end_pos, num_steps, num_meas)
 
 input("Press Enter to quit...")

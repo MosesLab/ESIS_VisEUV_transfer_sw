@@ -1,4 +1,4 @@
-function [cont_loop, start_pos, end_pos, num_steps, num_meas] = range_finder(csv_fn,iteration)
+function [cont_loop, start_pos, end] = range_finder(csv_fn,iteration)
 %OVERVIEW: determines how the next measurent should be taken to get the
 %neccessary confidence for position
 warning('off','all')
@@ -154,9 +154,5 @@ else
 end
 
 cont_loop = true;
-start_pos = strt;
-end_pos = stp;
-num_steps = stept;
-num_meas = mest;
-%new_grid = [strt stp stept mest];
+new_grid = [strt stp stept mest];
 end
