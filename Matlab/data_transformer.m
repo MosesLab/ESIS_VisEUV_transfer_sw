@@ -15,7 +15,7 @@ global voltag3
     here data will be interpreted from its csv format
 %}
 
-data=fileread(impo);
+data=csvread(impo);
 
 [h l]=size(data)
 
@@ -33,6 +33,3 @@ for(n=(1:h))
     voltag2(n)=mean(data(n,3:3:end));
     voltag3(n)=mean(data(n,4:3:end));
 end
-voltag1=voltag1';
-voltag2=voltag2';
-voltag3=voltag3';

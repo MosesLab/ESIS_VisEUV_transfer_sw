@@ -1,9 +1,14 @@
-function [cont_loop,new_grid]=range_finder(impo,iteration)
+function [cont_loop, new_grid] = range_finder(csv_fn,iteration)
 %OVERVIEW: determines how the next measurent should be taken to get the
 %neccessary confidence for position
+warning('off','all')
+
 
 %uses cut gaussian data
 global impo
+impo = csv_fn;
+csv_fn
+%impo='/home/krg/ESIS/ESIS_VisEUV_transfer_sw/Python/output_csv/vis-euv_20170222-101156.csv'
 run plotter.m
 
 %data variables pulled and given to other programs
@@ -55,9 +60,9 @@ if((mx1==min(distanc1))&usdp==1)
     strt=strt-.5;
     usds=0;
 end
-if((mx2==min(distanc2))&used==1)
+if((mx2==min(distanc2))&used==1)out
     strt=strt-.5;
-    usds=0;
+    usds=0;test/dir'
 end
 if(mx3==min(distanc3)==1)
     strt=strt-.5;
@@ -91,7 +96,7 @@ if(max(distance2)==max(distanc2)&gausth==1)
     gaustl=0;
 end
 if(max(distance3)==max(distanc3)&gausth==1)
-    stp=stp+.25;
+    stp=stp+.25;impo
     gaustl=0;
 end
 
@@ -103,7 +108,7 @@ if(gaustl==1&gausth==1&usds==1&usdp==1)
     stept=(stp-strt)/.002;
     %number of voltage measurents per position
     mest=10;
-    %tells if program is precise enough
+    %tells if program is precise eoutnough
     bot=0;
     %output strt,stp,stept,mest
 else
@@ -115,37 +120,38 @@ end
 
 %determines what to do with data
 %if full measurment with no known issues over a wide enough range:
-if(bot==0)
-    %determiens confidence interval
-    run bootstrapper.m
-    
-    %depending on the width of the confidence interval:
-    if(hi_rng<.0038)
-        %%%%%if vis measurment, end program
-        
-        %if narrow enough, run shimming program
-        run shimmer.m
-        
-        %if this program has been run once before but wasn't precice enough
-    else if(pro==0)
-        %increase range of measurment
-        strt=strt-.1;
-        stp=stp+.1;
-        stept=(stp-strt)/.002;
-        %tells if this program has been run before
-        pro=1;
-        %output strt,stp,stept,mest
-        else
-            %will propt to manually input start, stop, step number, and
-            %measurments per position
-            %%%%%alert me to manually input strt,stp,stept,mest
-        end
-    end
-else
-    %tell program this section has never been run before
-    pro=0;
-    
-end
+% if(bot==0)
+%     %determiens confidence interval
+%     run bootstrapper.m
+%     
+%     %depending on the width of the confidence interval:
+%     if(hi_rng<.0038)
+%         %%%%%if vis measurment, end program
+%         
+%         %if narrow enough, run shimming program
+%         run shimmer.m
+%         
+%         %if this program has been run once before but wasn't precice enough
+%     elseif(pro==0)
+%         %increase range of measurment
+%         strt=strt-.1;
+%         stp=stp+.1;
+%         stept=(stp-strt)/.002;
+%         %tells if this program has been run before
+%         pro=1;
+%         %output strt,stp,stept,mest
+%         else
+%             %will propt to manually input start, stop, step number, and
+%             %measurments per position
+%             %%%%%alert me to manually input strt,stp,stept,mest
+%         end
+%     end
+% else
+%     %tell program this section has never been run before
+%     pro=0;
+%     
+% end
 
 cont_loop = false;
-new_grid = [1,1,1,1];
+new_grid = [1 2 3 4];
+end

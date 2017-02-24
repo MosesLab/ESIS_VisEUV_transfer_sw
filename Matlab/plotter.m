@@ -21,9 +21,11 @@ global voltage3
 figure()
 hold on
 %scatter plot of all data
-scatter(distanc1,voltag1,'r')
-scatter(distanc2,voltag2,'b')
-scatter(distanc3,voltag3,'g')
+distanc1
+voltag1
+scatter(distanc1,voltag1','r')
+scatter(distanc2,voltag2','b')
+scatter(distanc3,voltag3','g')
 
 %finds min and max distance values for plotting
 min_dis=min(distanc1);
@@ -34,13 +36,13 @@ max_dis=max(distanc1);
 prec_dis=min_dis:.0002:max_dis;
 
 %does a 4th degree polynomial fit to data
-pft1=polyfit(distanc1,voltag1,4);
+pft1=polyfit(distanc1,voltag1',4);
 pft_pre_gaus1=polyval(pft1,prec_dis);
 
-pft2=polyfit(distanc2,voltag2,4);
+pft2=polyfit(distanc2,voltag2',4);
 pft_pre_gaus2=polyval(pft2,prec_dis);
 
-pft3=polyfit(distanc3,voltag3,4);
+pft3=polyfit(distanc3,voltag3',4);
 pft_pre_gaus3=polyval(pft3,prec_dis);
 
 %plots polynomial fits over scatter plot
@@ -57,9 +59,9 @@ ylabel('Voltage (V)')
 %%%%%saves to a folder
 
 %does a 1st order gausian fit to data
-ft_gaus1=fit(distanc1,voltag1,'gauss1');
-ft_gaus2=fit(distanc2,voltag2,'gauss1');
-ft_gaus3=fit(distanc3,voltag3,'gauss1');
+ft_gaus1=fit(distanc1,voltag1','gauss1');
+ft_gaus2=fit(distanc2,voltag2','gauss1');
+ft_gaus3=fit(distanc3,voltag3','gauss1');
 
 gaus_voltag1=ft_gaus1(prec_dis);
 gaus_voltag2=ft_gaus2(prec_dis);
@@ -69,9 +71,9 @@ figure()
 hold on
 
 %plots scatter plot of original data
-scatter(distanc1,voltag1,'r')
-scatter(distanc2,voltag2,'b')
-scatter(distanc3,voltag3,'g')
+scatter(distanc1,voltag1','r')
+scatter(distanc2,voltag2','b')
+scatter(distanc3,voltag3','g')
 
 %plots gaussian fits over scatter plot
 gaus_plot1=plot(prec_dis,gaus_voltag1,'r');
@@ -93,11 +95,11 @@ bnd_gaus3=ft_gaus3.a1/2;
 
 %cuts all data that isn't higher than half the height of the guassian fit
 distance1=distanc1(voltag1>bnd_gaus1);
-voltage1=voltag1(voltag1>bnd_gaus1);
+voltage1=voltag1(voltag1>bnd_gaus1)';
 distance2=distanc2(voltag2>bnd_gaus1);
-voltage2=voltag2(voltag2>bnd_gaus1);
+voltage2=voltag2(voltag2>bnd_gaus1)';
 distance3=distanc3(voltag3>bnd_gaus1);
-voltage3=voltag3(voltag3>bnd_gaus1);
+voltage3=voltag3(voltag3>bnd_gaus1)';
 
 %makes new precise distance values for fitting, but now specific to each
 %measurement
