@@ -25,7 +25,7 @@ num_steps = int(sys.argv[3])    # Number of steps to take with the motor between
 num_meas = int(sys.argv[4])       # Number of intensity measurements to take per step
 dx = (end_pos - start_pos) / num_steps  # Amount to move for each step
 
-cont_loop = True
+cont_loop = 1       # 0 = for continuing adptive mesh refinement, 1 = for manual mesh refinement, 2 = bootstrapping converged, exit program.
 
 # Open the Z812B motorized stage
 motor = None
@@ -45,7 +45,13 @@ motor.max_velocity = 1.0    # Set max velocity parameter on Z812 (mm/s)
 motor.print_state()
 motor.home()
 
-while(cont_loop):
+while(True):
+
+    # Check the return value of Matlab script to determine what to do next
+    if(cont_loop == 1):
+        [start_pos, end_pos, num_steps, num_meas] = input("Adaptive grid selection failed, Please enter the new gridsize...")
+    elif(cont_loop ==2):
+        break
 
     # Check that the arguments are physically attainable
     if start_pos == end_pos:
