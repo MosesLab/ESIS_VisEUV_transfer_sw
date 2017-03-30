@@ -1,4 +1,4 @@
-function [cont_loop, strt, stp, stept, mest] = complete_align(csv_dir,iteration)
+function [cont_loop,strt,stp,stept,mest] = complete_align(csv_dir,iteration)
 warning('off','all');
 %{
 global distanc1
@@ -240,7 +240,7 @@ if(iteration==1)
     stp=max([mx1 mx2 mx3])+.5;
     mest=5;
     stept=round((stp-strt)/.02,0);
-    cont_loop=0;
+    cont_loop=1;
     [cont_loop strt stp stept mest]
 end
 

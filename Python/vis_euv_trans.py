@@ -25,7 +25,7 @@ num_steps = int(sys.argv[3])    # Number of steps to take with the motor between
 num_meas = int(sys.argv[4])       # Number of intensity measurements to take per step
 dx = (end_pos - start_pos) / num_steps  # Amount to move for each step
 
-cont_loop = 1       # 0 = for continuing adptive mesh refinement, 1 = for manual mesh refinement, 2 = bootstrapping converged, exit program.
+cont_loop = 0      # 0 = for continuing adptive mesh refinement, 1 = for manual mesh refinement, 2 = bootstrapping converged, exit program.
 
 # Open the Z812B motorized stage
 motor = None
@@ -43,6 +43,7 @@ voltmet = agilent.init_serial()
 motor.acceleration = 0.05
 motor.max_velocity = 1.0    # Set max velocity parameter on Z812 (mm/s)
 motor.print_state()
+
 motor.home()
 
 while(True):
@@ -103,12 +104,16 @@ while(True):
                 data.append(datum)
 
         csv_writer.writerow(data)   # write next row of data to file
+        csvfile.flush()
 
 
 
     csvfile.close() # Close CSV file
 
-    [cont_loop, start_pos, end_pos, num_steps, num_meas] = eng.range_finder("../Python/" + csv_fn, 0, nargout=2)
+    [cont_loop, start_pos, end_pos, num_steps, num_meas] = eng.complete_align("../Python/" + csv_fn, 1, nargout=5)
+    cont_loop = int(cont_loop)
+    num_steps = int(num_steps)
+    num_meas = int(num_meas)
     print(cont_loop, start_pos, end_pos, num_steps, num_meas)
 
 input("Press Enter to quit...")
