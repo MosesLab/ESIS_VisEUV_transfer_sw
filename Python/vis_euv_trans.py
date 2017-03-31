@@ -23,9 +23,9 @@ start_pos = float(sys.argv[1])    # Position where the sequence starts, measured
 end_pos = float(sys.argv[2])     # Position where the sequence ends, measured from the home position
 num_steps = int(sys.argv[3])    # Number of steps to take with the motor between start and end position
 num_meas = int(sys.argv[4])       # Number of intensity measurements to take per step
-dx = (end_pos - start_pos) / num_steps  # Amount to move for each step
 
 cont_loop = 0      # 0 = for continuing adptive mesh refinement, 1 = for manual mesh refinement, 2 = bootstrapping converged, exit program.
+iteration = 0
 
 # Open the Z812B motorized stage
 motor = None
@@ -53,6 +53,8 @@ while(True):
         [start_pos, end_pos, num_steps, num_meas] = input("Adaptive grid selection failed, Please enter the new gridsize...")
     elif(cont_loop ==2):
         break
+
+    dx = (end_pos - start_pos) / num_steps  # Amount to move for each step
 
     # Check that the arguments are physically attainable
     if start_pos == end_pos:
@@ -110,10 +112,14 @@ while(True):
 
     csvfile.close() # Close CSV file
 
-    [cont_loop, start_pos, end_pos, num_steps, num_meas] = eng.complete_align("../Python/" + csv_fn, 1, nargout=5)
+    [cont_loop, start_pos, end_pos, num_steps, num_meas, iteration] = eng.complete_align("../Python/" + csv_fn, iteration, nargout=6)
     cont_loop = int(cont_loop)
     num_steps = int(num_steps)
     num_meas = int(num_meas)
-    print(cont_loop, start_pos, end_pos, num_steps, num_meas)
+    iteration= int(iteration)
+    print(cont_loop, start_pos, end_pos, num_steps, num_meas,iteration)
+
+
+
 
 input("Press Enter to quit...")
