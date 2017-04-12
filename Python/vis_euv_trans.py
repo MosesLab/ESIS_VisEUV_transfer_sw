@@ -6,6 +6,8 @@ import thorpy.message
 import thorpy.comm.discovery as comm
 import thorpy.stages
 import agilent
+
+import os
 import csv
 import time
 from time import sleep
@@ -15,14 +17,43 @@ eng = matlab.engine.start_matlab()
 eng.cd(r'../Matlab')
 
 # Check if the program received the correct number of arguments
-if len(sys.argv) != 5:
-    sys.exit("Incorrect number of arguments! \n Calling sequence: python3 vis_euv_trans.py [start position] [end position] [number of steps] [number of measurements per step] \n" + str(sys.argv))
+if len(sys.argv) != 8:
+    sys.exit("Incorrect number of arguments! \n Calling sequence: python3 vis_euv_trans.py [start position] [end position] [number of steps] [number of measurements per step] [VIS | EUV] [Grating #] [Comment] \n" + str(sys.argv))
 
 # Set up measurement variables
 start_pos = float(sys.argv[1])    # Position where the sequence starts, measured from the home position
 end_pos = float(sys.argv[2])     # Position where the sequence ends, measured from the home position
 num_steps = int(sys.argv[3])    # Number of steps to take with the motor between start and end position
 num_meas = int(sys.argv[4])       # Number of intensity measurements to take per step
+
+# Type of grating to analyze for this measurement (Visible or EUV)
+grating_type = str(sys.argv[5])
+if(grating_type != "VIS" and grating_type != "EUV"):
+    sys.exit("Incorrect grating type argument, use 'VIS' or 'EUV'")
+
+# Serial number of the grating under test
+grating_num = int(sys.argv[6])
+if(grating_num < 1 or grating_num > 6):
+    sys.exit("Incorrect grating number specified. Use a value between 1 and 6")
+
+# Comment associated with this test run
+grating_comment = str(sys.argv[7])
+
+# prepare the directory structure
+grating_dir = "../Output/" + grating_type + "/" + "grating_" + str(grating_num)
+if not os.path.exists(grating_dir):
+    os.makedirs(grating_dir)
+
+timestr = time.strftime("%Y%m%d-%H%M%S")
+exp_dir = grating_dir + "/" + timestr
+os.makedirs(exp_dir)
+
+report_dir = exp_dir + "/reports"
+os.makedirs(report_dir)
+iter_dir = exp_dir + "/iterations"
+os.makedirs(iter_dir)
+
+
 
 cont_loop = 0      # 0 = for continuing adptive mesh refinement, 1 = for manual mesh refinement, 2 = bootstrapping converged, exit program.
 iteration = 0
@@ -72,13 +103,14 @@ while(True):
     if num_steps <= 0:
         sys.exit("Number of steps must be larger than zero")
 
+    # Prepare directory for this iteration
+    cur_dir = iter_dir + "/iteration_" + str(iteration)
+    os.makedirs(cur_dir)
+
     # Open CSV file for writing output
-    timestr = time.strftime("%Y%m%d-%H%M%S")
-    csv_fn = 'output_csv/vis-euv_' + timestr + '.csv'
+    csv_fn = cur_dir + "/data.csv"
     csvfile =  open(csv_fn, 'w', newline='')
     csv_writer = csv.writer(csvfile)
-
-             # Move the Z812 to the home position (position 0.0mm) before measurements
 
 
     # Loop through the sequence
@@ -112,7 +144,7 @@ while(True):
 
     csvfile.close() # Close CSV file
 
-    [cont_loop, start_pos, end_pos, num_steps, num_meas, iteration] = eng.complete_align("../Python/" + csv_fn, iteration, nargout=6)
+    [cont_loop, start_pos, end_pos, num_steps, num_meas, iteration] = eng.complete_align(".." + csv_fn, iteration, nargout=6)
     cont_loop = int(cont_loop)
     num_steps = int(num_steps)
     num_meas = int(num_meas)
