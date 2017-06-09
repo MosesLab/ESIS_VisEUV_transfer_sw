@@ -28,5 +28,10 @@ python3 setup.py install
 ```
 
 ### Running Without Superuser Privledges
-By default, the USB system requires sudo privledges to access. We can circumvent this by copying the file '51-thorpy.rules' in the root of this repo into the directory '/etc/udev/rules.d/' and restarting the computer. This will remove superuser privledges for all USB devices, so use with caution!
+By default, the USB system requires sudo privledges to access. We can circumvent this by copying the file '51-thorpy.rules' in the root of this repo into the directory '/etc/udev/rules.d/' and adding the desired user to the 'usbusers' group. This is done by:
+```
+sudo addgroup usbusers
+sudo usermod -a -G usbusers <myUsername>
+```
+After a system restart, the system should be ready to take measurements.
 
