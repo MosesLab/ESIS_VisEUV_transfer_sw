@@ -144,7 +144,7 @@ while(True):
 
     csvfile.close() # Close CSV file
 
-    [cont_loop, start_pos, end_pos, num_steps, num_meas, iteration] = eng.complete_align(".." + csv_fn, iteration, nargout=6)
+    [cont_loop, start_pos, end_pos, num_steps, num_meas, iteration] = eng.complete_align(csv_fn, iteration,grating_num,grating_type, nargout=6)
     cont_loop = int(cont_loop)
     num_steps = int(num_steps)
     num_meas = int(num_meas)
