@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="276ed0f4-75b9-4a0a-82da-11f8cc50d55a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="276ed0f4-75b9-4a0a-82da-11f8cc50d55a" name="Default" comment="" />
     <ignored path="ESIS_VisEUV_transfer_sw.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -490,7 +488,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#246#259#0" expanded="true" />
+            <element signature="e#246#259#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -532,7 +530,7 @@
         <state relative-caret-position="390">
           <caret line="26" column="26" lean-forward="false" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
           <folding>
-            <element signature="e#246#259#0" expanded="true" />
+            <element signature="e#246#259#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -559,7 +557,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#246#259#0" expanded="true" />
+            <element signature="e#246#259#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -728,7 +726,7 @@
         <state relative-caret-position="675">
           <caret line="45" column="52" lean-forward="false" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
           <folding>
-            <element signature="e#247#283#0" expanded="true" />
+            <element signature="e#247#283#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -754,7 +752,7 @@
         <state relative-caret-position="2115">
           <caret line="141" column="0" lean-forward="false" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
           <folding>
-            <element signature="e#246#259#0" expanded="true" />
+            <element signature="e#246#259#0" expanded="false" />
           </folding>
         </state>
       </provider>
