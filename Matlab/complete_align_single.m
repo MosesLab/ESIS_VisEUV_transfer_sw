@@ -5,7 +5,7 @@
 %be within a certain tolerance.
 
 %input and outputs arguments
-function [cont_loop, strt, stp, stept, mest,iteration] = complete_align(csv_dir,iteration,grating,type)
+function [cont_loop, strt, stp, stept, mest,iteration] = complete_align_single(csv_dir,iteration,grating,type)
 %polynomial fits are normally not ideal
 warning('off','all');
 
@@ -52,7 +52,7 @@ pft_pre_gaus1=polyval(pft1,prec_dis);
 pre_gaus_plot1=plot(prec_dis,pft_pre_gaus1,'r');
 
 %formatting
-legend([pre_gaus_plot1],{'data1'})
+legend(pre_gaus_plot1,{'data1'})
 title('Original data with 4th degree polynomial fit')
 xlabel('Distance (mm)')
 ylabel('Voltage (V)')
@@ -73,7 +73,7 @@ scatter(distanc1,voltag1,'r')
 gaus_plot1=plot(prec_dis,gaus_voltag1,'r');
 
 %formatting
-legend([gaus_plot1],{'data1'})
+legend(gaus_plot1,{'data1'})
 title('Original data with a 1st Gaussian fit')
 xlabel('Distance (mm)')
 ylabel('Voltage (V)')
@@ -104,7 +104,7 @@ scatter(distance1,voltage1,'r')
 post_gaus_plot1=plot(dis_prec1,pft_post_gaus1,'r');
 
 %formatting
-legend([post_gaus_plot1],{'data1'})
+legend(post_gaus_plot1,{'data1'})
 title('Relevant data with 4th degree polynomial fit')
 xlabel('Distance (mm)')
 ylabel('Voltage (V)')
@@ -148,11 +148,17 @@ if(iteration==1)
     mx1=distanc1(voltag1==max(voltag1));
     
     %sets gridsize parameters
+<<<<<<< HEAD
     %strt=min([mx1])-.5;
     strt=min(distance1)-.25;
     %stp=max([mx1])+.5;
     stp=max(distance1)+.25;
     mest=1;
+=======
+    strt=min(mx1)-.5;
+    stp=max(mx1)+.5;
+    mest=3;
+>>>>>>> 08ec797702c1704a376c5d571b328d34dd08830e
     stept=round((stp-strt)/.02,0);
     cont_loop=0;
     %%%[cont_loop strt stp stept mest];
@@ -160,16 +166,16 @@ end
 
 
 if(iteration==2)
-    if(max([distance1])==max([distanc1]))
-        stp=max([distanc1])+.25;
+    if(max(distance1)==max(distanc1))
+        stp=max(distanc1)+.25;
     else
-        stp=max([distance1])+.05;   
+        stp=max(distance1)+.05;   
     end
     
-    if(min([distance1'])==min([distanc1]))
-        strt=min([distanc1])-.25;
+    if(min(distance1)==min(distanc1))
+        strt=min(distanc1)-.25;
     else
-        strt=min([distance1'])-.05;
+        strt=min(distance1)-.05
     end
     
     mest=3;
@@ -180,16 +186,16 @@ end
 
 
 if(iteration==3)
-    if(max([distance1])==max([distanc1]))
-        stp=max([distanc1])+.1;
+    if(max(distance1)==max(distanc1))
+        stp=max(distanc1)+.1;
     else
-        stp=max([distance1])+.02;
+        stp=max(distance1)+.02;
     end
     
-    if(min([distance1])==min([distanc1]))
-        strt=min([distanc1])-.1;
+    if(min(distance1)==min(distanc1))
+        strt=min(distanc1)-.1;
     else
-        strt=min([distance1])-.02;
+        strt=min(distance1)-.02;
     end
     
     mest=5;
@@ -258,7 +264,14 @@ if(iteration==4||iteration==5)
     hibd1=maxxs1((times/2)+num_pt);
 
     %width of the confidence intervals
+<<<<<<< HEAD
     rng1=(hibd1-lwbd1)*25400;
+=======
+    rng1=(hibd1-lwbd1)*1000;
+
+    %finds the widest confidence interval
+    hi_rng=max(rng1/1000);
+>>>>>>> 08ec797702c1704a376c5d571b328d34dd08830e
 
     %if(hi_rng<.001) %CHANGE THIS VALUE ACCORDING TO PRECISION REQUIREMENTS
         strt=0;
@@ -333,6 +346,7 @@ if(iteration==4||iteration==5)
         fclose(fileID); %close the finished file
         
         cd (pth(1:end-15))
+<<<<<<< HEAD
         try
             system('pdflatex Test_Report.tex')
             system('sudo xdg-open Test_Report.pdf')
@@ -344,9 +358,15 @@ if(iteration==4||iteration==5)
         end
 
     %else
+=======
+        system('pdflatex Test_Report.tex')
+        system('sudo xdg-open Test_Report.pdf')
+
+    else
+>>>>>>> 08ec797702c1704a376c5d571b328d34dd08830e
         if(iteration==4)
-            strt=min([distanc1])-.01;
-            stp=max([distanc1])+.01;
+            strt=min(distanc1)-.01;
+            stp=max(distanc1)+.01;
             mest=10;
             stept=round((stp-strt)/.002,0);
             cont_loop=0;
