@@ -40,7 +40,7 @@ if(grating_num < 1 or grating_num > 6):
 grating_comment = str(sys.argv[7])
 
 # prepare the directory structure
-grating_dir = "../Output/" + grating_type + "/" + "grating_" + str(grating_num)
+grating_dir = "/home/krg/ESIS_VisEUV_transfer_sw/Output/" + grating_type + "/" + "grating_" + str(grating_num)
 if not os.path.exists(grating_dir):
     os.makedirs(grating_dir)
 
@@ -71,8 +71,8 @@ if motor == None:
 voltmet = agilent.init_serial()
 
 # Prepare the motor for a sequence
-motor.acceleration = 0.05
-motor.max_velocity = 1.0    # Set max velocity parameter on Z812 (mm/s)
+motor.acceleration = 0.5
+motor.max_velocity = 2.3    # Set max velocity parameter on Z812 (mm/s)
 motor.print_state()
 
 motor.home()
@@ -131,7 +131,7 @@ while(True):
         data = []
         data.append(str(motor.position))
         for j in range(0, num_meas):        # Take intensity measurements
-            raw = agilent.measure(voltmet)
+            raw = agilent.measure(voltmet, 101, 101)
             rawlist = raw.split(",")
             for datum in rawlist:
                 #print(datum)
@@ -144,7 +144,7 @@ while(True):
 
     csvfile.close() # Close CSV file
 
-    [cont_loop, start_pos, end_pos, num_steps, num_meas, iteration] = eng.complete_align(csv_fn, iteration,grating_num,grating_type, nargout=6)
+    [cont_loop, start_pos, end_pos, num_steps, num_meas, iteration] = eng.complete_align_single(csv_fn, iteration,grating_num,grating_type, nargout=6)
     cont_loop = int(cont_loop)
     num_steps = int(num_steps)
     num_meas = int(num_meas)

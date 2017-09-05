@@ -1,0 +1,27 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{datetime}
+\usepackage{ragged2e}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{mwe}
+\usepackage{float}
+\pagenumbering{gobble}
+\begin{document}
+\begin{center}
+{\scshape\LARGE VIS-EUV Test Report \par}
+{\scshape\Large \today, \currenttime \par}
+\bigskip
+{\scshape\large Grating Type:VIS \par}
+{\scshape\large Grating Number:1 \par}
+\end{center}
+\noindent We are 98\% confident that the peak intensity...\\
+\indent...for channel 1 lies at 8.9334 mm to a precision of 10.7 microns.\\
+\noindent The final model was created...\\
+\indent...after 10.7 intensity scans.\\
+\indent...with 4 measurements taken at each distance.\\
+\indent...with data from 10 distances.\\
+\begin{figure}[H]
+\centering
+\includegraphics[height=.5\textheight, trim={4cm 8.5cm 4cm 8.5cm},clip]{861}\\
+\end{figure}
+\end{document}

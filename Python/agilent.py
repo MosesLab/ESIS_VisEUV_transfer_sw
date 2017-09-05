@@ -2,7 +2,8 @@
 import serial
 
 # Commands the agilent to read voltage on specified number of ports
-command = bytes("MEASure:VOLTage:DC? (@101:103)\n", 'utf-8')
+# command = bytes("MEASure:VOLTage:DC? (@101:103)\n", 'utf-8')
+# command = bytes("MEASure:VOLTage:DC? (@" + start_chan + ":" + end_chan + ")\n", 'utf-8')
 
 #Function to Initialize the Serial Port
 def init_serial():
@@ -23,7 +24,16 @@ def init_serial():
 
 
 # Reads one measurement from A/D
-def measure(ser):
+def measure(ser, start_chan, end_chan):
+
+    command = []
+
+    if start_chan == end_chan:
+        command = bytearray("MEASure:VOLTage:DC? (@" + str(start_chan) + ")\n", 'utf-8')
+    else:
+        command = bytearray("MEASure:VOLTage:DC? (@" + str(start_chan) + ":" + str(end_chan) + ")\n", 'utf-8')
+
+
     ser.write(command)
     bytes = ser.readline().decode('utf-8')[:-2]  #Reads from SerialPort
     return bytes
