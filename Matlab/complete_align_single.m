@@ -143,65 +143,67 @@ print(all_fig_combo,strrep(csv_dir,'data.csv','all_fig_combo'),'-dpdf')
 
 %ALL FOLLOWING DETERMINES THE ADAPTIVE GRID
 
-if(iteration==1)
-    %finds the distance value for which the voltage is maximized
-    mx1=distanc1(voltag1==max(voltag1));
-    
-    %sets gridsize parameters
-    %strt=min([mx1])-.5;
-    strt=min(distance1)-.25;
-    %stp=max([mx1])+.5;
-    stp=max(distance1)+.25;
-    mest=1;
-    strt=min(mx1)-.5;
-    stp=max(mx1)+.5;
-    mest=3;
-    stept=round((stp-strt)/.02,0);
-    cont_loop=0;
-    %%%[cont_loop strt stp stept mest];
-end
+% if(iteration==1)
+%     %finds the distance value for which the voltage is maximized
+%     mx1=distanc1(voltag1==max(voltag1));
+%     
+%     %sets gridsize parameters
+%     %strt=min([mx1])-.5;
+%     strt=min(distance1)-.25;
+%     %stp=max([mx1])+.5;
+%     stp=max(distance1)+.25;
+%     mest=1;
+%     strt=min(mx1)-.5;
+%     stp=max(mx1)+.5;
+%     mest=3;
+%     stept=round((stp-strt)/.02,0);
+%     cont_loop=0;
+%     %%%[cont_loop strt stp stept mest];
+% end
+% 
 
+% if(iteration==2)
+%     if(max(distance1)==max(distanc1))
+%         stp=max(distanc1)+.25;
+%     else
+%         stp=max(distance1)+.05;   
+%     end
+%     
+%     if(min(distance1)==min(distanc1))
+%         strt=min(distanc1)-.25;
+%     else
+%         strt=min(distance1)-.05
+%     end
+%     
+%     mest=3;
+%     stept=round((stp-strt)/.01,0);
+%     cont_loop=0;
+%     %%%[cont_loop strt stp stept mest];
+% end
+% 
+% 
+% if(iteration==3)
+%     if(max(distance1)==max(distanc1))
+%         stp=max(distanc1)+.1;
+%     else
+%         stp=max(distance1)+.02;
+%     end
+%     
+%     if(min(distance1)==min(distanc1))
+%         strt=min(distanc1)-.1;
+%     else
+%         strt=min(distance1)-.02;
+%     end
+%     
+%     mest=10;
+%     stept=round((stp-strt)/.002,0);
+%     cont_loop=0;
+%     %%%[cont_loop strt stp stept mest];
+% end
 
-if(iteration==2)
-    if(max(distance1)==max(distanc1))
-        stp=max(distanc1)+.25;
-    else
-        stp=max(distance1)+.05;   
-    end
-    
-    if(min(distance1)==min(distanc1))
-        strt=min(distanc1)-.25;
-    else
-        strt=min(distance1)-.05
-    end
-    
-    mest=3;
-    stept=round((stp-strt)/.01,0);
-    cont_loop=0;
-    %%%[cont_loop strt stp stept mest];
-end
-
-
-if(iteration==3)
-    if(max(distance1)==max(distanc1))
-        stp=max(distanc1)+.1;
-    else
-        stp=max(distance1)+.02;
-    end
-    
-    if(min(distance1)==min(distanc1))
-        strt=min(distanc1)-.1;
-    else
-        strt=min(distance1)-.02;
-    end
-    
-    mest=10;
-    stept=round((stp-strt)/.002,0);
-    cont_loop=0;
-    %%%[cont_loop strt stp stept mest];
-end
-
-if(iteration==4||iteration==5)
+%if(iteration==4||iteration==5)
+ 
+if iteration==1
     %number of times boostrap is repeated
     times=1000;
 
@@ -275,7 +277,9 @@ if(iteration==4||iteration==5)
         cont_loop=2;
         
         %find file path for image
-        alfg=strrep(csv_dir,'data.csv','all_fig_combo.pdf')
+        alfg=strrep(csv_dir,'data.csv','all_fig_combo.pdf');
+        alfg=alfg(3:end);
+        alfg=strcat('/home/krg/ESIS_VisEUV_transfer_sw',alfg)
         
         %output pdf test report
         variableList = {type num2str(grating) num2str(mode(maxxs1)) num2str(rng1) num2str(iteration) num2str(l-1) num2str(h) alfg};

@@ -390,6 +390,8 @@ if(iteration==4||iteration==5)
         
         %find file path for image
         alfg=strrep(csv_dir,'data.csv','all_fig_combo.pdf');
+        alfg=alfg(3:end);
+        alfg=strcat('/home/krg/ESIS_VisEUV_transfer_sw',alfg)
         
         %output pdf test report
         variableList = {type num2str(grating) num2str(mode(maxxs1)) num2str(rng1) num2str(mode(maxxs2)) num2str(rng2) num2str(mode(maxxs3)) num2str(rng3) num2str(iteration) num2str((l-1)/3) num2str(h) alfg};
