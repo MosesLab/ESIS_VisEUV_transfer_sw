@@ -6,7 +6,7 @@ import thorpy.message
 import thorpy.comm.discovery as comm
 import thorpy.stages
 import agilent
-
+from temp_conversion import steinhart
 import os
 import csv
 import time
@@ -133,9 +133,11 @@ while(True):
         for j in range(0, num_meas):        # Take intensity measurements
             raw = agilent.measure(voltmet, 101, 101)
             rawlist = raw.split(",")
-            for datum in rawlist:
-                #print(datum)
-                data.append(datum)
+            for k in range(0, len(rawlist)):
+                if k < 3:   # photodiode measurement
+                    data.append(rawlist[k])
+                else:
+                    data.append(steinhart(rawlist[k]))
 
         csv_writer.writerow(data)   # write next row of data to file
         csvfile.flush()
